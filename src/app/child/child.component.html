@@ -1,0 +1,38 @@
+<mat-toolbar color="accent">
+  Book: {{ book.title }}
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="closeDrawer.emit()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div id="form-fields">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="book.title">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Author</mat-label>
+    <input matInput [(ngModel)]="book.author">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Pages</mat-label>
+    <input matInput type="number" [(ngModel)]="book.pages">
+  </mat-form-field>
+
+  <div id="action-buttons">
+    <button mat-raised-button color="accent" (click)="addBook.emit(book)" *ngIf="book.id == 0">
+      Add
+    </button>
+    <button mat-raised-button color="accent" (click)="updateBook.emit(book)" *ngIf="book.id > 0">
+      Update
+    </button>
+    <button mat-raised-button color="accent" (click)="removeBook.emit(book)" *ngIf="book.id > 0">
+      Remove
+    </button>
+  </div> <!-- End #action-buttons -->
+
+</div> <!-- End #form-fields -->

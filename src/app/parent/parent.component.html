@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  Books
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" style="margin-right: 10px" (click)="createBookList()">
+    Reset
+  </button>
+  <button mat-raised-button color="accent" (click)="openDrawerToAddBook()">
+    Add Book
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="drawer-container">
+
+  <mat-drawer-content>
+    <mat-action-list *ngFor="let book of books">
+      <mat-list-item (click)="openDrawerToEditBook(book)">
+        "{{ book.title }}" by {{ book.author }} ({{ book.pages }} pages)
+      </mat-list-item>
+    </mat-action-list>
+  </mat-drawer-content>
+
+  <mat-drawer #childDrawer mode="side" position="end">
+    <app-child  [book]="currentBook"
+                (closeDrawer)="childDrawer.close()"
+                (addBook)="addBook($event)"
+                (updateBook)="updateBook($event)"
+                (removeBook)="removeBook($event)">
+    </app-child>
+  </mat-drawer>
+
+</mat-drawer-container>
