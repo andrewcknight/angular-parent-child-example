@@ -1,7 +1,9 @@
 # angular-parent-child-example
 
-## Setup
+## Overview
 ### Angular
+This example uses Angular version 15.1.0.
+
 This example requires the addition of the Angular FormsModule
 in order for the mat-form-fields to work.
 
@@ -25,9 +27,17 @@ The supporting modules have been added to the app.module.ts file:
 ### LoDash cloneDeep
 This example uses the LoDash cloneDeep library.
 
-See details below: Parent Component > Opening the Drawer
+Why? See details below: Parent Component > Opening the Drawer
 
 `npm i lodash`
+
+---
+
+## Setup
+### Getting Started
+1. To install the libraries, run: `npm install`
+2. To run the application, run: `ng serve`
+3. Open your browser, navigate to: http://localhost:4200
 
 ---
 
