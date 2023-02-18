@@ -43,6 +43,12 @@ export class ParentComponent implements OnInit{
    * @param book
    */
   public addBook(book: IBook): void {
+    /*
+     * Set the new book's ID to the next ID.
+     * This example assumes that the books are in ascending order by ID.
+     */
+    book.id = this.books[this.books.length - 1].id + 1;
+
     this.books.push(book);
     this.childDrawer.close();
   }
